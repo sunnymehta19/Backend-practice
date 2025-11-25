@@ -1,0 +1,16 @@
+{
+  "name": "notes-app-using-expressjs",
+  "version": "1.0.0",
+  "description": "This is a Notes App made using ExpressJS where notes are stored in a file and shows the notes using routing.",
+  "license": "ISC",
+  "author": "Sunny Mehta",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

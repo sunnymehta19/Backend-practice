@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        #scroll::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 ">
+        <form action="/create" method="post" class="p-8">
+            <div class="heading text-white text-4xl mb-3 px-2 font-mono select-none">Notes</div>
+            <input class="block text-white px-4 py-2 bg-zinc-800 w-full mt-2 rounded-lg h-[50px] outline-none" type="text" placeholder="Enter Title" name="title">
+            <textarea class="capitalize block text-white px-4 py-2 bg-zinc-800 w-full mt-2 rounded-lg h-[100px] resize-none outline-none" name="description" id="" placeholder="Enter description"></textarea>
+            <input class="bg-amber-600 text-white py-2 px-5 rounded-xl mt-2 text-lg transform hover:scale-105" type="submit" value="Submit">
+        </form>
+        <div class="line border border-gray-800 h-[1px] w-[95%] mx-auto my-1"></div>
+        <div class="container px-8 py-5 text-white  grid grid-cols-1 sm:grid-cols-3 gap-y-6 justify-items-center overflow-y-scroll h-[50vh] " id="scroll">
+
+            <% if(files.length > 0){ %>
+                <% files.forEach(e => { %>
+                    <div class="bg-zinc-800 rounded-lg w-[80%] h-[80px] py-5 px-6 relative ">
+                <h1 class="text-xl"><%= e.replace(/\.[^/.]+$/, "") %></h1>
+                <!-- <p class="text-sm h-10 overflow-y-hidden"></p> -->
+                <a href="/file/<%= e %>" class="text-amber-600 absolute bottom-2 right-4 text-lg">Read more</a>
+               
+            </div>
+                <% }); %>
+            <% } else { %>
+                <h1 class="text-white text-4xl text-center">No Task Yet.</h1>
+            <% } %>
+            
+        </div>
+    </div>
+</body>
+</html>

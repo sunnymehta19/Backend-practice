@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Users</title>
+    <style>
+        #scroll::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="p-10 bg-zinc-900 w-full h-screen">
+        <a href="/" class="text-amber-600 mb-3 inline-block">Go to Home</a>
+        <h1 class="text-3xl font-mono mb-10 text-white">All Users</h1>
+        <div id="scroll" class="flex flex-wrap gap-6 overflow-y-scroll h-[75vh]">
+            <% if (username.length> 0) { %>
+                <% username.forEach(e=> { %>
+                    <div class="bg-zinc-800 h-[350px] w-66 rounded-lg p-3 ">
+                        <div class="bg-zinc-700 h-[65%] w-full rounded-lg overflow-hidden">
+                            <img class="h-full w-full object-cover" src="<%= e.image %>" alt="">
+                        </div>
+                        <h3 class="text-2xl text-white capitalize mt-2 font-bold">
+                            <%= e.username %>
+                        </h3>
+                        <h5 class="text-zinc-500">
+                            <%= e.email %>
+                        </h5>
+                        <div class="flex justify-between mt-6 ">
+                            <a class="text-white" href="/edit/<%= e._id %>">Edit User</a>
+                            <a class="text-red-400" href="/delete/<%= e._id %>">Delete</a>
+                        </div>
+                    </div>
+                    <% }); %>
+                        <% } else { %>
+                            <h1 class="text-zinc-600 text-3xl">No User Yet</h1>
+                    <% } %>
+
+
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
