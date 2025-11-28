@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Form</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="bg-zinc-800 w-full h-screen p-10">
+        <form action="/login" method="post">
+            <div class="flex flex-col w-full justify-center items-center">
+                <h1 class="text-white text-3xl font-bold mb-10">Login your Account</h1>
+                <input class="bg-zinc-600 text-white outline-none mr-3 px-3 py-2 rounded-lg mb-2" name="email" type="email"
+                    placeholder="Enter email">
+                <input class="bg-zinc-600 text-white outline-none mr-3 px-3 py-2 rounded-lg mb-2" name="password"
+                    type="password" placeholder="Enter password">
+                <input class="px-5 py-2 bg-green-500 text-white rounded-lg font-bold trasform hover:scale-105 "
+                    type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+
+</html>
