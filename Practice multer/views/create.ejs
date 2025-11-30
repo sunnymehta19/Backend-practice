@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Create Account</title>
+    <style>
+        .select-amber::selection {
+            background: #e37200fc;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w-full h-screen bg-zinc-900 flex justify-center items-center flex-col">
+        <h1 class="text-white text-2xl font-bold mb-4">Create Profile</h1>
+        <form action="/create" method="post" enctype="multipart/form-data">
+            <div class="flex flex-col w-80">
+                <input class="bg-zinc-800 outline-none px-3 py-3 mb-2 text-white rounded-lg capitalize select-amber"
+                    name="username" type="text" placeholder="Enter Name">
+
+                <div class="flex flex-col w-80">
+                    <input type="file" id="fileInput" class="hidden" name="avatar">
+
+                    <label for="fileInput" id="fileLabel"
+                        class="bg-zinc-800 text-white px-4 py-3 rounded-lg mb-2 cursor-pointer hover:bg-zinc-700 transition">
+                        📁 Choose Profile pic
+                    </label>
+                </div>
+
+                <input class="bg-zinc-800 outline-none px-3 py-3 mb-2 text-white rounded-lg " name="age" type="number"
+                    placeholder="Enter Age">
+                <input class="bg-zinc-800 outline-none px-3 py-3 mb-2 text-white rounded-lg " name="email" type="email"
+                    placeholder="Enter Email">
+                <input class="bg-zinc-800 outline-none px-3 py-3 mb-2 text-white rounded-lg " name="password"
+                    type="password" placeholder="Enter Password">
+                <input
+                    class="bg-amber-600 outline-none px-3 py-3 mb-2 text-white font-bold rounded-lg cursor-pointer transform hover:scale-98 "
+                    type="submit" value="Create">
+            </div>
+        </form>
+    </div>
+    <script>
+        const fileInput = document.getElementById("fileInput");
+        const fileLabel = document.getElementById("fileLabel");
+
+        fileInput.addEventListener("change", () => {
+            if (fileInput.files.length > 0) {
+                fileLabel.textContent = fileInput.files[0].name;
+            } else {
+                fileLabel.textContent = "📁 Choose Profile pic";
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

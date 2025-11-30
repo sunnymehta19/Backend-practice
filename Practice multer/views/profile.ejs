@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Create Account</title>
+    <style>
+        .select-amber::selection {
+            background: #e37200fc;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w-full h-screen bg-zinc-900 p-10 flex flex-wrap ">
+
+        <% if (user.length > 0) { %>
+    <% user.forEach(user => { %>
+
+        <div class="border border-zinc-700 w-[320px] p-5 rounded-xl bg-zinc-800 h-[180px] mr-4">
+
+            <div class="flex items-center gap-4 mb-4">
+                <img src="/images/uploads/<%= user.avatar %>"
+                     class="w-14 h-14 rounded-full object-cover"
+                     alt="Profile Picture">
+
+                <div>
+                    <h2 class="text-white text-xl font-bold"><%= user.username %></h2>
+                    <p class="text-gray-400 text-sm">Age: <%= user.age %></p>
+                </div>
+            </div>
+
+            <div class="w-full h-[1px] bg-zinc-700 my-3"></div>
+
+            <div class="mt-2">
+                <p class="text-gray-400 text-sm mb-1">Email</p>
+                <p class="text-white font-medium text-[15px]"><%= user.email %></p>
+            </div>
+
+        </div>
+
+    <% }) %>
+<% } else { %>
+    <h1 class="text-3xl text-white">No Profile yet</h1>
+<% } %>
+
+
+    </div>
+</body>
+
+</html>
